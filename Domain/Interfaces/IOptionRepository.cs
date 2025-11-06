@@ -1,0 +1,10 @@
+namespace Domain.interfaces;
+
+public interface IOptionRepository
+{
+    Task<Quiz?> GetByIdAsync(int id);
+    Task<IEnumerable<Quiz>> GetAllAsync();
+    Task<int> AddAsync(Quiz quiz);
+    Task<bool> UpdateAsync(Quiz quiz);
+    Task<bool> DeleteAsync(int id);
+}
