@@ -2,11 +2,14 @@ namespace Domain.interfaces;
 
 public interface IUserRepository
 {
-    Task<Quiz?> GetByIdAsync(int id);
-    Task<Quiz?> GetByIdWithDetailsAsync(int id);
-    Task<IEnumerable<Quiz>> GetAllAsync();
+    Task<User?> GetByIdAsync(int id);
+    Task<User?> GetByIdWithDetailsAsync(int id);
+    Task<IEnumerable<User>> GetAllAsync();
     
-    Task<int> AddAsync(Quiz quiz);
-    Task<bool> UpdateAsync(Quiz quiz);
+    Task<int> AddAsync(User quiz);
+    Task<bool> UpdateAsync(User quiz);
     Task<bool> DeleteAsync(int id);
+    
+    Task<User?> GetByUsernameAsync(string username);
+    //void SetTransaction(System.Data.IDbTransaction? transaction);
 }

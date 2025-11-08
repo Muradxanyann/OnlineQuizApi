@@ -13,7 +13,7 @@ public class CreateQuizAccessLog : Migration
             .WithColumn("quiz_id").AsInt32().NotNullable().ForeignKey("Quizzes", "id").OnDeleteOrUpdate(System.Data.Rule.Cascade)
             .WithColumn("submitted_at").AsDateTime().WithDefault(SystemMethods.CurrentDateTime);
 
-        Create.Index("idx_quizaccesslog_user_quiz")
+        Create.Index("idx_accessorize_user_quiz")
             .OnTable("QuizAccessLog")
             .OnColumn("user_id").Ascending()
             .OnColumn("quiz_id").Ascending();
