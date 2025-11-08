@@ -3,6 +3,7 @@ using Application.Interfaces;
 using Application.Services;
 using Domain.interfaces;
 using Infrastructure;
+using Infrastructure.Messaging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -85,6 +86,7 @@ builder.Services.AddScoped<IQuestionService, QuestionService>();
 builder.Services.AddScoped<IOptionService, OptionService>();
 builder.Services.AddScoped<IConnectionFactory, NpgsqlConnectionFactory>();
 
+builder.Services.AddSingleton<IMessageBusPublisher, RabbitMqPublisher>();
             
 var app = builder.Build();
 
