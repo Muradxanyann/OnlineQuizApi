@@ -1,5 +1,3 @@
-using Application.DTOs;
-using Application.DTOs.QuestionDTOs;
 using Application.DTOs.QuizDTOs;
 
 namespace Application.Interfaces;

@@ -1,6 +1,5 @@
 using Application.DTOs.QuestionDTOs;
 using Application.Interfaces;
-using Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OnlineQuizzApi.Controllers;

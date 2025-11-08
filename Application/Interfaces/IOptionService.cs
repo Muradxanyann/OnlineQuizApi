@@ -1,5 +1,4 @@
 using Application.DTOs.OptionDTOs;
-using Domain;
 
 namespace Application.Interfaces;
 
