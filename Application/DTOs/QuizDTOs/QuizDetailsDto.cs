@@ -1,4 +1,6 @@
-namespace Application.DTOs;
+using Application.DTOs.QuestionDTOs;
+
+namespace Application.DTOs.QuizDTOs;
 
 public class QuizDetailsDto
 {
@@ -9,5 +11,5 @@ public class QuizDetailsDto
     public bool IsPublished { get; set; }
     public string? CategoryName { get; set; }
     public string? LevelName { get; set; }
-    public ICollection<QuestionDto> Questions { get; set; } = new List<QuestionDto>();
+    public ICollection<QuestionResponseDto> Questions { get; set; } = new List<QuestionResponseDto>();
 }

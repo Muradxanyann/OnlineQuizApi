@@ -6,6 +6,8 @@ public interface IUnitOfWork : IDisposable
     IQuestionRepository Questions { get; }
     IOptionRepository Options { get; }
     IUserRepository Users { get; }
+    IUserRoleRepository  UserRoles { get; }
+    
     // ToDO, should add another Repositories
 
     void BeginTransaction();

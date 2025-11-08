@@ -2,11 +2,11 @@ namespace Domain.interfaces;
 
 public interface IQuestionRepository
 {
-    Task<Quiz?> GetByIdAsync(int id);
-    Task<Quiz?> GetByIdWithDetailsAsync(int id);
-    Task<IEnumerable<Quiz>> GetAllAsync();
+    Task<Question?> GetByIdAsync(int id);
+    Task<Question?> GetByIdWithDetailsAsync(int id);
+    Task<IEnumerable<Question>> GetAllAsync();
     
-    Task<int> AddAsync(Quiz quiz);
-    Task<bool> UpdateAsync(Quiz quiz);
+    Task<int> AddAsync(Question quiz);
+    Task<bool> UpdateAsync(Question quiz);
     Task<bool> DeleteAsync(int id);
 }
