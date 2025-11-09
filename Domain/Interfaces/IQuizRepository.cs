@@ -4,8 +4,7 @@ public interface IQuizRepository
 {
     Task<Quiz?> GetByIdAsync(int id);
     Task<Quiz?> GetByIdWithDetailsAsync(int id);
-    Task<IEnumerable<Quiz>> GetAllAsync();
-    
+    Task<(IEnumerable<Quiz> items, int totalCount)> GetPagedAsync(PagedRequest request);
     Task<int> AddAsync(Quiz quiz);
     Task<bool> UpdateAsync(Quiz quiz);
     Task<bool> DeleteAsync(int id);

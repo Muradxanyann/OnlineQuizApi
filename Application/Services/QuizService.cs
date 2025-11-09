@@ -1,3 +1,4 @@
+using Application.DTOs.Pagination;
 using Application.DTOs.QuizDTOs;
 using Application.Interfaces;
 using AutoMapper;
@@ -11,16 +12,23 @@ public class QuizService : IQuizService
     private readonly IUnitOfWork _uow;
     private readonly IMapper _mapper;
 
-    public QuizService(IUnitOfWork unitOfWork,  IMapper mapper)
+    public QuizService(IUnitOfWork unitOfWork, IMapper mapper)
     {
         _uow = unitOfWork;
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<QuizDetailsDto?>> GetAllAsync()
+    public async Task<PagedResponse<QuizListDto>> GetPagedAsync(PagedRequest request)
     {
-        var quizzes = await _uow.Quizzes.GetAllAsync();
-        return _mapper.Map<IEnumerable<QuizDetailsDto>>(quizzes);
+        var (quizzes, totalCount) = await _uow.Quizzes.GetPagedAsync(request);
+        var quizDtos = _mapper.Map<IEnumerable<QuizListDto>>(quizzes);
+
+        return new PagedResponse<QuizListDto>(
+            quizDtos, 
+            totalCount, 
+            request.PageNumber, 
+            request.PageSize
+        );
     }
 
     public async Task<QuizDetailsDto?> GetByIdWithDetailsAsync(int id)

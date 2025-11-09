@@ -1,5 +1,7 @@
+using Application.DTOs.Pagination;
 using Application.DTOs.QuizDTOs;
 using Application.Interfaces;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OnlineQuizzApi.Controllers;
@@ -16,10 +18,10 @@ public class QuizzesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetPaged([FromQuery] PagedRequest request)
     {
-        var quizzes = await _quizService.GetAllAsync();
-        return Ok(quizzes);
+        var result = await _quizService.GetPagedAsync(request);
+        return Ok(result);
     }
 
     [HttpGet("{id:int}")]

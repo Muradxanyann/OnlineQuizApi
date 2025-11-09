@@ -1,0 +1,16 @@
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/bin/Debug/net9.0/Application.deps.json
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/bin/Debug/net9.0/Application.dll
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/bin/Debug/net9.0/Application.pdb
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/bin/Debug/net9.0/Domain.dll
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/bin/Debug/net9.0/Domain.pdb
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.csproj.AssemblyReference.cache
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.AssemblyInfoInputs.cache
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.AssemblyInfo.cs
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.csproj.CoreCompileInputs.cache
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.sourcelink.json
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Applicat.44B5EDA2.Up2Date
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.dll
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/refint/Application.dll
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/Application.pdb
+/Users/gormuradxanyan/RiderProjects/OnlineQuizFinalProject/OnlineQuizApi/Application/obj/Debug/net9.0/ref/Application.dll
