@@ -1,26 +1,26 @@
-﻿# 1. Сборка
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
+
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-
-# ИСПРАВЛЕНЫ ПУТИ:
-# Копируем .csproj всех проектов, от которых зависит Api
-# (Предполагается, что остальные папки - Application, Domain - лежат рядом)
-COPY ["OnlineQuizzApi/OnlineQuizzApi.csproj", "OnlineQuizzApi/"]
-COPY ["QuizManager.Application/QuizManager.Application.csproj", "QuizManager.Application/"]
-COPY ["QuizManager.Domain/QuizManager.Domain.csproj", "QuizManager.Domain/"]
-COPY ["QuizManager.Infrastructure/QuizManager.Infrastructure.csproj", "QuizManager.Infrastructure/"]
-
-RUN dotnet restore "OnlineQuizzApi/OnlineQuizzApi.csproj"
+COPY ["Presentation/Presentation.csproj", "Presentation/"]
+COPY ["Application/Application.csproj", "Application/"]
+COPY ["Domain/Domain.csproj", "Domain/"]
+COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
+RUN dotnet restore "Presentation/Presentation.csproj"
 COPY . .
-WORKDIR "/src/OnlineQuizzApi" 
-RUN dotnet build "OnlineQuizzApi.csproj" -c Release -o /app/build
+WORKDIR "/src/Presentation"
+RUN dotnet build "./Presentation.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# 2. Публикация
 FROM build AS publish
-RUN dotnet publish "OnlineQuizzApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "./Presentation.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# 3. Финальный образ
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "OnlineQuizzApi.dll"] # <-- ИСПРАВЛЕНО
+ENTRYPOINT ["dotnet", "Presentation.dll"]

@@ -2,7 +2,7 @@ using Application.DTOs.QuestionDTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace OnlineQuizzApi.Controllers;
+namespace OnlineQuizApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

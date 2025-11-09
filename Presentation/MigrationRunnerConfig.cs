@@ -1,6 +1,6 @@
 using FluentMigrator.Runner;
 
-namespace OnlineQuizzApi;
+namespace OnlineQuizApi;
 
 public static class MigrationRunnerConfig
 {

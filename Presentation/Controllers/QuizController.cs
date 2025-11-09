@@ -4,7 +4,7 @@ using Application.Interfaces;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 
-namespace OnlineQuizzApi.Controllers;
+namespace OnlineQuizApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
