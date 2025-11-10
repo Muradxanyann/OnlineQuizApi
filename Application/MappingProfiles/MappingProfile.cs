@@ -14,10 +14,9 @@ public class MappingProfile : Profile
         // Quiz mapping
         CreateMap<CreateQuizDto, Quiz>().ReverseMap();
         CreateMap<UpdateQuizDto, Quiz>().ReverseMap();
-        CreateMap<Quiz, QuizDetailsDto>()
-            .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null))
-            .ForMember(dest => dest.LevelName, opt => opt.MapFrom(src => src.Level != null ? src.Level.Name : null));
+        CreateMap<Quiz, QuizDetailsDto>();
         CreateMap<IEnumerable<Quiz>, QuizDetailsDto>().ReverseMap();
+        CreateMap<Quiz, QuizListDto>();
 
         
         // Questions mapping

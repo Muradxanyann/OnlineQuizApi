@@ -70,8 +70,8 @@ public class QuizRepository : IQuizRepository
                                           ql.name as LevelName,
                                           (SELECT COUNT(*) FROM questions WHERE quiz_id = q.id) as QuestionsCount
                                    FROM quizzes q
-                                   LEFT JOIN quiz_categories qc ON q.category_id = qc.id
-                                   LEFT JOIN quiz_levels ql ON q.level_id = ql.id
+                                   LEFT JOIN quizcategory qc ON q.category_id = qc.id
+                                   LEFT JOIN quizlevels ql ON q.level_id = ql.id
                                    {whereClause}
                                    {orderBy}
                                    LIMIT @PageSize OFFSET @Offset
