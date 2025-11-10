@@ -189,4 +189,23 @@ public class QuizRepository : IQuizRepository
         const string sql = "SELECT * FROM quizzes WHERE code_to_join = @Code;";
         return await _connection.QuerySingleOrDefaultAsync<Quiz>(sql, new { Code = code }, _transaction);
     }
+    public async Task<bool> HasUserAttemptedQuizAsync(int userId, int quizId)
+    {
+        const string sql = """
+                               SELECT COUNT(1) FROM quizaccesslog 
+                               WHERE user_id = @UserId AND quiz_id = @QuizId;
+                           """;
+
+        var count = await _connection.ExecuteScalarAsync<int>(sql, new { UserId = userId, QuizId = quizId });
+        return count > 0;
+    }
+
+    public async Task LogQuizAccessAsync(int userId, int quizId)
+    {
+        const string sql = """
+                               INSERT INTO quizaccesslog (user_id, quiz_id, submitted_at) 
+                               VALUES (@UserId, @QuizId, NOW());
+                           """;
+        await _connection.ExecuteAsync(sql, new { UserId = userId, QuizId = quizId });
+    }
 }

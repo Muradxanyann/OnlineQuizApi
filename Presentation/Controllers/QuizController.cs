@@ -1,7 +1,11 @@
+using System.Security.Claims;
+using Application.DTOs.InternalDTOs;
 using Application.DTOs.Pagination;
 using Application.DTOs.QuizDTOs;
 using Application.Interfaces;
 using Domain;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OnlineQuizApi.Controllers;
@@ -50,5 +54,14 @@ public class QuizzesController : ControllerBase
     {
         var result = await _quizService.DeleteAsync(id);
         return result ? NoContent() : NotFound();
+    }
+    
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [HttpPost("{quizId}/submit")]
+    public async Task<IActionResult> SubmitQuiz(int quizId, [FromBody] QuizSubmissionDto submission)
+    {
+        var userId = int.Parse(User.FindFirst("nameid")?.Value ?? "0");
+        await _quizService.SubmitQuizAsync(quizId, userId, submission);
+        return Ok(new { Message = "Quiz submission received and is being processed." });
     }
 }

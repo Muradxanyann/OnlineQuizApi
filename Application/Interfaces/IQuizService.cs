@@ -1,3 +1,4 @@
+using Application.DTOs.InternalDTOs;
 using Application.DTOs.Pagination;
 using Application.DTOs.QuizDTOs;
 using Domain;
@@ -11,4 +12,6 @@ public interface IQuizService
     Task<int> CreateAsync(CreateQuizDto quiz);
     Task<bool> UpdateAsync(UpdateQuizDto quiz);
     Task<bool> DeleteAsync(int id);
+    
+    Task SubmitQuizAsync(int quizId, int userId, QuizSubmissionDto submission);
 }

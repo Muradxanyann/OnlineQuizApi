@@ -2,5 +2,5 @@ namespace Application.Interfaces;
 
 public interface IMessageBusPublisher
 {
-    void Publish(string message, string routingKey);
+    void Publish<T>(string routingKey, T message);
 }

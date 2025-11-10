@@ -9,4 +9,6 @@ public interface IQuizRepository
     Task<bool> UpdateAsync(Quiz quiz);
     Task<bool> DeleteAsync(int id);
     Task<Quiz?> FindByCodeAsync(string code);
+    Task<bool> HasUserAttemptedQuizAsync(int userId, int quizId);
+    Task LogQuizAccessAsync(int userId, int quizId);
 }
