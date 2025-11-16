@@ -77,7 +77,7 @@ public class QuizService : IQuizService
         var quiz = await _unitOfWork.Quizzes.GetByIdAsync(quizId);
         if (quiz == null) throw new KeyNotFoundException("Quiz not found.");
 
-        await _unitOfWork.Quizzes.LogQuizAccessAsync(userId, quizId);
+       // await _unitOfWork.Quizzes.LogQuizAccessAsync(userId, quizId);
 
         var quizEvent = new QuizSubmittedEvent
         {
